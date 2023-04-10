@@ -38,7 +38,8 @@ function draw() {
   stroke(0);
   // If mouse is pressed, draw line between previous and current mouse positions
   if (mouseIsPressed) {
-    line(pmouseX, pmouseY, mouseX, mouseY);
+    //ass the parameter inside the function pmouseX, pmouseY, mouseX, mouseY
+    line();
   }
 
   check_sketch()
@@ -46,13 +47,15 @@ function draw() {
   {
     answer_holder = "set"
     score++;
-    document.getElementById('score').innerHTML = 'Score: ' + score;
+    
+    document.getElementById(' ').innerHTML = 'Score: ' + score;
   }
 
 }
 
 function classifyCanvas() {
-  classifier.classify(canvas, gotResult);
+  //add canvas and gotResult
+  classifier.classify( );
 }
 
 function gotResult(error, results) {
@@ -61,16 +64,16 @@ function gotResult(error, results) {
   }
   console.log(results);
   drawn_sketch = results[0].label;
-  document.getElementById('label').innerHTML = 'Your Sketch: ' + drawn_sketch;
+  document.getElementById(' ').innerHTML = 'Your Sketch: ' + drawn_sketch;
 
-  document.getElementById('confidence').innerHTML = 'Confidence: ' + Math.round(results[0].confidence * 100) + '%';
+  document.getElementById('').innerHTML = 'Confidence: ' + Math.round(results[0].confidence * 100) + '%';
 }
 
 
 function check_sketch()
 {
   timer_counter++;
-  document.getElementById('time').innerHTML = 'Timer: ' + timer_counter;
+  document.getElementById(' ').innerHTML = 'Timer: ' + timer_counter;
   console.log(timer_counter)
   if(timer_counter > 400)
     {
